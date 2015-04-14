@@ -19,4 +19,19 @@ function Cat(name, age) {
 }
 
 var cat = new Cat('SassyPants', 5);
-console.log('new cat', cat);
+
+Cat.prototype.purr = function() {
+  console.log(this.name + ' is purring and ' + this.name + ' is ' + this.age);
+}
+
+var cats = [];
+for (var i = 1; i < 11; i++) {
+  var cat = new Cat('cat' + i, i);
+  cats.push(cat);
+}
+
+cats.forEach(function(c) {
+  if (c.age > 5) {
+    c.purr();
+  }
+})
